@@ -2,22 +2,17 @@
 
 class Auto
 {
-    private static int $anzahl = 0;
-
-    private static self|null $auto = null;
-
+//    private static int $anzahl = 0;
+//
+//    private static self|null $auto = null;
     private string $marke;
     private string $modell;
     private int $baujahr;
-
     private int $kilometerstand;
     private int $maxGeschwindigkeit;
     private int $geschwindigkeit;
 
-    $reichweite
-
-
-    private function __construct($funcmarke, $funcmodell, $funcbaujahr, $kilometerstand, $maxGeschwindigkeit)
+    public function __construct($funcmarke, $funcmodell, $funcbaujahr, $kilometerstand, $maxGeschwindigkeit)
     {
         $this->marke = $funcmarke;
         $this->modell = $funcmodell;
@@ -25,20 +20,19 @@ class Auto
         $this->kilometerstand = $kilometerstand;
         $this->maxGeschwindigkeit = $maxGeschwindigkeit;
         $this->geschwindigkeit = 0;
-        self::$anzahl ++;
-
-    }
-
-    public static function macheAuto($funcmarke, $funcmodell, $funcbaujahr, $kilometerstand, $maxGeschwindigkeit)
-    {
-        if (self::$auto === null){
-            self::$auto = new self($funcmarke, $funcmodell, $funcbaujahr, $kilometerstand, $maxGeschwindigkeit);
-        }
-        return self::$auto;
 
 
     }
 
+//    public static function macheAuto($funcmarke, $funcmodell, $funcbaujahr, $kilometerstand, $maxGeschwindigkeit)
+//    {
+//        if (self::$auto === null){
+//            self::$auto = new self($funcmarke, $funcmodell, $funcbaujahr, $kilometerstand, $maxGeschwindigkeit);
+//        }
+//        return self::$auto;
+
+
+//    }
 
     public function getMarke(): string
     {
@@ -184,10 +178,10 @@ class Auto
 //$vw3 = new Auto('VW', "Golf", 1995, 200000, 180);
 //$vw4 = new Auto('VW', "Golf", 1995, 200000, 180);
 //$vw5 = new Auto('VW', "Golf", 1995, 200000, 180);
-$vw = Auto::macheAuto('VW', "Golf", 1995, 200000, 180);
-$bmw = Auto::macheAuto('BMW', '3', 2003, 100000, 260);
-echo $vw->getMarke();
-echo Auto::getAnzahl();
+//$vw = Auto::macheAuto('VW', "Golf", 1995, 200000, 180);
+//$bmw = Auto::macheAuto('BMW', '3', 2003, 100000, 260);
+//echo $vw->getMarke();
+//echo Auto::getAnzahl();
 
 
 //echo($vw->htmlInfo());

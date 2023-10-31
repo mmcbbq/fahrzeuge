@@ -1,17 +1,19 @@
 <?php
-require_once 'Auto.php';
-class E_Auto extends Auto
+require_once "Auto.php";
+class E_Auto_vererbung extends Auto
 {
-  public int $reichweite;
+    private int $reichweite;
 
     /**
      * @param int $reichweite
      */
     public function __construct(int $reichweite)
     {
-        parent::__construct();
+        parent::__
         $this->reichweite = $reichweite;
     }
 
 
 }
+
+$vw = new E_Auto_vererbung(200);
