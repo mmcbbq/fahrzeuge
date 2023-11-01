@@ -34,8 +34,3 @@ public function setReichweite(int $reichweite): void
 }
 
 
-$e_vw = new E_Auto('VW','I3',2020,0,240,300,100);
-$e_vw->setGeschwindigkeit(20);
-$e_vw->setAktuellerVerbrauch(2);
-print_r($e_vw);
-echo $e_vw->aktuelleReichweite();

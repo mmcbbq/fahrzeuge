@@ -182,10 +182,6 @@ abstract class Fahrzeug
         $this->aktuellerVerbrauch = $aktuellerVerbrauch;
     }
 
-
-
-
-
 }
 //
 
