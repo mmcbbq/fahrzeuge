@@ -1,6 +1,6 @@
 <?php
-require_once 'Auto.php';
-class E_Auto extends Auto
+require_once 'Fahrzeug.php';
+class E_Auto extends Fahrzeug
 {
 
 
@@ -19,7 +19,7 @@ class E_Auto extends Auto
     public function setBaujahr(int $baujahr): void
     {
         if ($baujahr <= 2000) {
-            echo 'das kann nicht sein das erste E Auto wurde 2000 gebaut.';
+            echo 'das kann nicht sein das erste E Fahrzeug wurde 2000 gebaut.';
         } else {
             $this->baujahr = $baujahr;
         }

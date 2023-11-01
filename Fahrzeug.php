@@ -1,6 +1,6 @@
 <?php
 
-class Auto
+class Fahrzeug
 {
     private static int $anzahl = 0;
     private string $marke;
@@ -63,7 +63,7 @@ class Auto
 
     {
         if ($baujahr <= 1900) {
-            echo 'das kann nicht sein das erste Auto wurde 1900 gebaut.';
+            echo 'das kann nicht sein das erste Fahrzeug wurde 1900 gebaut.';
         } else {
             $this->baujahr = $baujahr;
         }
@@ -128,8 +128,7 @@ class Auto
 
 }
 //
-$vw = new Auto('vw', "Golf", 1995, 200000, 180);
-Auto::getAnzahl();
+
 ////$vw->setMarke('vw');
 ////$vw->setModell('Golf');
 //
@@ -167,7 +166,7 @@ Auto::getAnzahl();
 //
 //
 //
-//$bmw = new Auto('BMW', '3', 2003, 100000, 260);
+//$bmw = new Fahrzeug('BMW', '3', 2003, 100000, 260);
 ////$bmw->setMarke('Bmw');
 ////$bmw->setModell('3');
 ////$bmw->setBaujahr(2003);
@@ -179,7 +178,7 @@ Auto::getAnzahl();
 //echo $bmw->getKilometerstand();
 //echo " \n" ;
 //
-//$volvo = new Auto('Volvo', 'XC40', 2015, 50000, 260);
+//$volvo = new Fahrzeug('Volvo', 'XC40', 2015, 50000, 260);
 ////$volvo->setMarke('Volvo');
 ////$volvo->setModell('xc40');
 ////$volvo->setBaujahr(2015);
