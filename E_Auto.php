@@ -1,21 +1,8 @@
 <?php
 require_once 'Fahrzeug.php';
+
 class E_Auto extends Fahrzeug
 {
-
-
-    private int $reichweite;
-
-    /**
-     * @param int $reichweite
-     */
-
-    public function __construct($funcmarke, $funcmodell, $funcbaujahr, $kilometerstand, $maxGeschwindigkeit,int $reichweite)
-    {
-        parent::__construct($funcmarke, $funcmodell, $funcbaujahr, $kilometerstand, $maxGeschwindigkeit);
-        $this->reichweite = $reichweite;
-    }
-
     public function setBaujahr(int $baujahr): void
     {
         if ($baujahr <= 2000) {
@@ -25,8 +12,6 @@ class E_Auto extends Fahrzeug
         }
 
     }
-
-
     /**
  * @return int
  */
@@ -42,13 +27,15 @@ public function setReichweite(int $reichweite): void
 }
 
 
-
+    function aktuelleReichweite(): int
+    {
+        return $this->getEnergiespeicher()/$this->getAktuellerVerbrauch()*100;
+    }
 }
 
 
-$e_vw = new E_Auto('VW','I3',1955,0,240,300);
-
-echo $e_vw->getModell();
-
-
-echo $e_vw->getReichweite();
+$e_vw = new E_Auto('VW','I3',2020,0,240,300,100);
+$e_vw->setGeschwindigkeit(20);
+$e_vw->setAktuellerVerbrauch(2);
+print_r($e_vw);
+echo $e_vw->aktuelleReichweite();

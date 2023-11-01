@@ -1,6 +1,6 @@
 <?php
 
-class Fahrzeug
+abstract class Fahrzeug
 {
     private static int $anzahl = 0;
     private string $marke;
@@ -8,18 +8,32 @@ class Fahrzeug
     private int $baujahr;
     private int $kilometerstand;
     private int $maxGeschwindigkeit;
-    private int $geschwindigkeit;
+    private int $geschwindigkeit = 0;
+    private int $reichweite;
+    private int $energiespeicher;
 
-    public function __construct($funcmarke, $funcmodell, $funcbaujahr, $kilometerstand, $maxGeschwindigkeit)
+    private int $aktuellerVerbrauch = 0;
+
+    /**
+     * @param string $marke
+     * @param string $modell
+     * @param int $baujahr
+     * @param int $kilometerstand
+     * @param int $maxGeschwindigkeit
+     * @param int $geschwindigkeit
+     * @param int $reichweite
+     */
+    public function __construct(string $marke, string $modell, int $baujahr, int $kilometerstand, int $maxGeschwindigkeit, int $reichweite, int $energiespeicher)
     {
-        $this->marke = $funcmarke;
-        $this->modell = $funcmodell;
-        $this->setBaujahr($funcbaujahr);
+        $this->marke = $marke;
+        $this->modell = $modell;
+        $this->setBaujahr($baujahr);
         $this->kilometerstand = $kilometerstand;
         $this->maxGeschwindigkeit = $maxGeschwindigkeit;
-        $this->geschwindigkeit = 0;
-        self::$anzahl ++;
+        $this->energiespeicher = $energiespeicher;
+        $this->reichweite = $reichweite;
     }
+
 
     public function getMarke(): string
     {
@@ -59,15 +73,8 @@ class Fahrzeug
     /**
      * @param int $baujahr
      */
-    public function setBaujahr(int $baujahr): void
+    abstract public function setBaujahr(int $baujahr):void;
 
-    {
-        if ($baujahr <= 1900) {
-            echo 'das kann nicht sein das erste Fahrzeug wurde 1900 gebaut.';
-        } else {
-            $this->baujahr = $baujahr;
-        }
-    }
 
     /**
      * @return int
@@ -124,6 +131,59 @@ class Fahrzeug
     {
         return self::$anzahl;
     }
+
+    /**
+     * @return int
+     */
+    public function getReichweite(): int
+    {
+        return $this->reichweite;
+    }
+
+    /**
+     * @param int $reichweite
+     */
+    public function setReichweite(int $reichweite): void
+    {
+        $this->reichweite = $reichweite;
+    }
+
+    abstract function aktuelleReichweite(): int;
+
+    /**
+     * @return int
+     */
+    public function getEnergiespeicher(): int
+    {
+        return $this->energiespeicher;
+    }
+
+    /**
+     * @param int $energiespeicher
+     */
+    public function setEnergiespeicher(int $energiespeicher): void
+    {
+        $this->energiespeicher = $energiespeicher;
+    }
+
+    /**
+     * @return int
+     */
+    public function getAktuellerVerbrauch(): int
+    {
+        return $this->aktuellerVerbrauch;
+    }
+
+    /**
+     * @param int $aktuellerVerbrauch
+     */
+    public function setAktuellerVerbrauch(int $aktuellerVerbrauch): void
+    {
+        $this->aktuellerVerbrauch = $aktuellerVerbrauch;
+    }
+
+
+
 
 
 }
