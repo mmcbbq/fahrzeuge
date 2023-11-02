@@ -1,6 +1,4 @@
 <?php
-require_once 'Fahrzeug.php';
-
 class E_Auto extends Fahrzeug
 {
     public function setBaujahr(int $baujahr): void

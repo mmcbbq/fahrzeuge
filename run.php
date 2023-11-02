@@ -1,9 +1,9 @@
 <?php
 function myAutoloader($className) {
-    $classFile = $className . '.php';
+    $classFile = "Class/".$className . '.php';
 
     if (file_exists($classFile)) {
-        include $classFile;
+        require_once $classFile;
     }
 }
 spl_autoload_register('myAutoloader');
@@ -15,10 +15,6 @@ $vw->setGeschwindigkeit(20);
 $vw->setAktuellerVerbrauch(5);
 print_r($vw);
 echo $vw->aktuelleReichweite();
-
-
-
-
 
 
 
@@ -36,3 +32,12 @@ $lkw->setGeschwindigkeit(20);
 $lkw->setAktuellerVerbrauch(5);
 print_r($lkw);
 echo $lkw->aktuelleReichweite();
+
+$fahrzeuge = [$vw, $e_vw, $lkw];
+
+foreach ($fahrzeuge as $fahrzeug)
+{
+    echo $fahrzeug->aktuelleReichweite();
+    print "\n";
+
+}
